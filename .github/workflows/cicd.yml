@@ -1,0 +1,34 @@
+name: cicd
+
+#it runs manually whenever user needs
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-22.04
+    steps:
+       - name: code clone
+         run: echo "clone done"
+   
+  job2:
+    runs-on: ubuntu-22.04
+    steps:
+       - name: code build
+         run: echo "build done"
+   
+      
+      
+  job3:
+     runs-on: ubuntu-22.04
+     steps:
+      - name: code test
+        run: echo "test run"
+  job4:
+     runs-on: ubuntu-22.04
+     steps:
+   
+      - name: code deploy
+        run: echo "code deploy"
+   
+     
+   
