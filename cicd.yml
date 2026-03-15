@@ -1,0 +1,25 @@
+name: cicd
+
+#it runs manually whenever user needs
+on:
+  workflow_dispatch:
+jobs:
+ code:
+  runs_on: ubuntu-latest
+  job1: 
+     - name: code clone
+       run: echo "clone done"
+   runs_on: ubuntu-latest
+   job2:
+      - name: code build
+        run: echo "build done"
+   runs_on: ubuntu-latest
+   job3:
+      - name: code test
+        run: echo "test run"
+   runs_on: ubuntu-latest
+   job4:
+   
+      - name: code deploy
+        run: echo "code deploy"
+   
