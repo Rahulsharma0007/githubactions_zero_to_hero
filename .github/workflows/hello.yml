@@ -13,4 +13,10 @@ jobs:
        
       - name: say to your username
         run: echo "hello $USER"
+
+   job2:
+     runs-on: ubuntu-22.04
+     steps:
+           - name: show me version of docker and python
+             run: docker --version && python --version
        
