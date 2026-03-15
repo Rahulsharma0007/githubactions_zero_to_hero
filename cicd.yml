@@ -4,21 +4,30 @@ name: cicd
 on:
   workflow_dispatch:
 jobs:
- code:
+ job1:
   runs_on: ubuntu-latest
-  job1: 
+   steps: 
      - name: code clone
        run: echo "clone done"
+   
+  job2:
    runs_on: ubuntu-latest
-   job2:
+    steps:
+    
+   
       - name: code build
         run: echo "build done"
-   runs_on: ubuntu-latest
+        
+
    job3:
+    runs_on: ubuntu-latest
+     steps:
       - name: code test
         run: echo "test run"
-   runs_on: ubuntu-latest
+   
    job4:
+    runs_on: ubuntu-latest
+     steps:
    
       - name: code deploy
         run: echo "code deploy"
