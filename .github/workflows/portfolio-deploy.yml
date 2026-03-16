@@ -31,6 +31,8 @@ jobs:
             #static code artifacts
             - name: upload static files
               uses: actions/upload-pages-artifact@v3
+              with:
+                path: "."
 
             #deploy to guthub pages
             - name: deploy to github pages
