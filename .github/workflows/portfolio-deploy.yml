@@ -1,0 +1,36 @@
+name: Portfolio
+
+on:
+    push:
+        branches: [main]
+
+ #grant github token permission required to make a new page
+permissions:
+    pages: write
+    id-token: write
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }} 
+          
+
+        steps:
+            #checout or code clone is same
+            #get access to your portfolio code via pre-built action
+            - name: checkout code
+              uses: actions/checkout@v5
+
+            #setup github pages
+            - name: Setup github pages
+              uses: actions/configure-pages@v4
+
+            #static code artifacts
+            - name: upload static files
+              uses: actions/upload-static@v4
+
+            #deploy to guthub pages
+            - name: deploy to github pages
+              uses: actions/deploy-pages@v4
