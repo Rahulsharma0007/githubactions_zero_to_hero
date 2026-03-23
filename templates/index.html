@@ -4,80 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Zero To Hero</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #e0e0e0;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            color: #e5e7eb;
         }
+
         .container {
             text-align: center;
-            padding: 2rem;
-            max-width: 640px;
+            padding: 2.5rem;
+            max-width: 700px;
+            backdrop-filter: blur(15px);
         }
+
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(90deg, #00d2ff, #7b2ff7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
+
         .badge {
             display: inline-block;
-            margin: 1rem 0 2rem;
-            padding: 0.4rem 1.2rem;
-            border: 1px solid #7b2ff7;
+            margin: 1rem 0 2.5rem;
+            padding: 0.5rem 1.4rem;
+            border: 1px solid rgba(123, 47, 247, 0.6);
             border-radius: 999px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #c4b5fd;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            background: rgba(255, 255, 255, 0.05);
         }
+
         .cards {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem 1.8rem;
-            min-width: 150px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 1.8rem;
+            min-width: 160px;
             flex: 1;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: #7b2ff7;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
         .card span {
             display: block;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: #9ca3af;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
+
         .card strong {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: #f9fafb;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>DevOps Zero To Hero</h1>
         <div class="badge">Josh Batch 10</div>
+
         <div class="cards">
             <div class="card">
                 <span>Framework</span>
                 <strong>Flask 3.1</strong>
             </div>
+
             <div class="card">
                 <span>Runtime</span>
                 <strong>Python 3.14</strong>
             </div>
+
             <div class="card">
                 <span>Deploy</span>
                 <strong>AWS ECS</strong>
