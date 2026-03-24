@@ -1,7 +1,7 @@
 name: Dockerfile
 
 on: 
-     workflow_dispatch:
+     workflow_call:
 
 jobs:
     build-push:
