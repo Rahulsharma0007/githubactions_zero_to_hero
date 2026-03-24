@@ -1,0 +1,20 @@
+# scan docker file for issue and common vulnerabilities
+name: docker lint
+
+on:
+    workflow_call:
+
+jobs:
+    docker-lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+            
+            - name: Run Hadolint
+        # Uses the Hadolint GitHub Action to lint the Dockerfile
+              uses: hadolint/hadolint-action@v3.1.0
+              with:
+          # Optionally specify a different path if your Dockerfile is not in the root
+               dockerfile: Dockerfile 
