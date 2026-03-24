@@ -1,9 +1,7 @@
 name: Portfolio
 
 on:
-    push:
-        
-    workflow_dispatch:
+     workflow_dispatch:
 
  #grant github token permission required to make a new page
 permissions:
