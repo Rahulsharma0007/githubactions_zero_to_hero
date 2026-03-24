@@ -1,0 +1,25 @@
+name: imagescan
+
+on: 
+    workflow_call:
+    
+jobs:
+    image-scan:
+        runs-on: ubuntu-latest
+
+       
+        steps:
+
+        - name: Login to Dockehub
+          uses: docker/login-action@v4
+          with:
+            
+            username: ${{ vars.DOCKERHUB_USER }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+        - name: Run Trivy vulnerability scanner
+          uses: aquasecurity/trivy-action@0.33.1
+          with:
+            image-ref: 'docker.io/github-actions-app:${{ github.sha }}'
+            severity: 'CRITICAL,HIGH'
+            exit-code: '1'
