@@ -1,0 +1,21 @@
+# yha packages m issue ya vulnerabilities scan krega. 
+
+name: dependency scan
+
+on:
+    workflow_call:
+
+jobs:
+    dependencies-scan:
+       runs-on: ubuntu-latest
+
+       steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+
+        - name: Install PIP audit
+          run: pip install pip-audit
+
+        - name: run PIP
+          run: pip-audit -r requirements.txt
+
