@@ -15,4 +15,7 @@ jobs:
 
     docker-scan:
       uses: ./.github/workflows/docker-lint.yml
+
+    build:
+      uses: ./.github/workflows/docker-build-push.yml
     
